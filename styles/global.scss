@@ -1,1 +1,52 @@
+// CSS Reset
+@import "../node_modules/normalize.css/normalize.css";
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans:wght@400;600;700&display=swap");
+
+// Partials
 @import "_variables.scss";
+
+// Pages
+@import "pages/index.scss";
+
+// Components
+@import "components/header/Basket.scss";
+@import "components/header/Header.scss";
+@import "components/main/CheckboxGroup.scss";
+@import "components/ui/Checkbox.scss";
+@import "components/ui/Radio.scss";
+@import "components/main/RadioGroup.scss";
+@import "components/main/product/ProductItem.scss";
+@import "components/main/product/ProductGroup.scss";
+@import "components/main/product/Pagination.scss";
+@import "components/main/product/ItemTypeFilter.scss";
+@import "components/basket/Basket.scss";
+@import "components/basket/BasketItem.scss";
+@import "components/footer/Footer.scss";
+
+.container {
+  max-width: 320px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  @media screen and (min-width: 440px) {
+    max-width: 420px;
+  }
+  @media screen and (min-width: 624px) {
+    max-width: 576px;
+  }
+  @media screen and (min-width: 996px) {
+    max-width: 854px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 1232px;
+  }
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: $gray-800;
+  background-color: $gray-100;
+}
