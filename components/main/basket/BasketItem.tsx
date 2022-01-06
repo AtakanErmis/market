@@ -1,23 +1,23 @@
-import { IProduct } from "../../../interfaces";
 import Plus from "../../../assets/icons/plus.svg";
 import Minus from "../../../assets/icons/Minus.svg";
+import { IBasketItem } from "../../../interfaces/basket";
 
 interface Props {
-  product: IProduct;
+  basketItem: IBasketItem;
 }
 
-export default function BasketItem({ product }: Props) {
+export default function BasketItem({ basketItem }: Props) {
   return (
     <li className="basket-item">
       <div className="wrapper">
-        <div className="basket-item__name">{product.name}</div>
-        <div className="basket-item__price">₺{product.price}</div>
+        <div className="basket-item__name">{basketItem.product.name}</div>
+        <div className="basket-item__price">₺{basketItem.product.price}</div>
       </div>
       <div className="basket-item__amount">
         <button>
           <Minus />
         </button>
-        <span>1</span>
+        <span>{basketItem.quantity}</span>
         <button>
           <Plus />
         </button>
