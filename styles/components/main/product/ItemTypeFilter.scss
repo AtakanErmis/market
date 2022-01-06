@@ -1,0 +1,29 @@
+.item-type-filter {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  .item-type {
+    button {
+      width: 60px;
+      height: 30px;
+      font-size: 13px;
+      margin-right: 8px;
+      border: 0;
+      border-radius: 2px;
+      background: #f2f0fd;
+      color: $primary;
+      cursor: pointer;
+      transition: background 150ms;
+      &.active {
+        background: $primary;
+        color: $white;
+        &:hover {
+          background: darken($primary, 10%);
+        }
+      }
+      &:hover {
+        background: darken(#f2f0fd, 10%);
+      }
+    }
+  }
+}

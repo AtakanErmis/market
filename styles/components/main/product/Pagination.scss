@@ -1,0 +1,55 @@
+.pagination {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  margin-top: 32px;
+  li {
+    &:first-of-type,
+    &:last-of-type {
+      button {
+        width: auto;
+      }
+    }
+    &:first-of-type {
+      @media screen and (min-width: 996px) {
+        margin-right: 45px;
+      }
+    }
+    &:last-of-type {
+      @media screen and (min-width: 996px) {
+        margin-left: 45px;
+      }
+    }
+    button {
+      width: 32px;
+      height: 40px;
+      background: transparent;
+      border: none;
+      font-weight: 600;
+      color: $secondary-text;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        margin: 0 7px;
+      }
+      &.active {
+        background: $primary;
+        color: $white;
+        &:hover {
+          color: $white;
+        }
+      }
+      &:hover {
+        color: $primary;
+        span svg path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+}

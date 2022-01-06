@@ -1,0 +1,15 @@
+.product-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px 24px;
+  list-style: none;
+  padding: 22px 20px;
+  background: $white;
+  border-radius: 2px;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  @media screen and (min-width: 624px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
