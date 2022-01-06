@@ -10,7 +10,7 @@ export default function Basket() {
         <BasketItem key={item.product.slug} basketItem={item} />
       ))}
       <li className="basket-price-wrapper">
-        <div className="basket-price">₺39.97</div>
+        <div className="basket-price">₺{basket.totalPrice}</div>
       </li>
     </ul>
   );
