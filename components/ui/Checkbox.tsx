@@ -1,4 +1,4 @@
-import Check from "../../assets/icons/check.svg";
+import Check from "@assets/icons/check.svg";
 
 interface Props {
   text?: string;

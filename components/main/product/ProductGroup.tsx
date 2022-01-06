@@ -1,5 +1,5 @@
-import { IProduct } from "../../../interfaces";
-import ProductItem from "./ProductItem";
+import { IProduct } from "@interfaces/index";
+import ProductItem from "@components/main/product/ProductItem";
 
 interface Props {
   products: IProduct[];

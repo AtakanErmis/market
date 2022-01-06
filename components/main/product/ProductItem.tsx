@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { IProduct } from "../../../interfaces";
-import { addItem } from "../../../stores/basketReducer";
+import { IProduct } from "@interfaces/index";
+import { addItem } from "@stores/basketReducer";
 
 interface Props {
   product: IProduct;

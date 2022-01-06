@@ -1,7 +1,7 @@
-import { usePagination } from "../../../hooks/usePagination";
+import { usePagination } from "@hooks/usePagination";
 import { useState } from "react";
-import LeftArrow from "../../../assets/icons/arrow-left.svg";
-import RightArrow from "../../../assets/icons/arrow-right.svg";
+import LeftArrow from "@assets/icons/arrow-left.svg";
+import RightArrow from "@assets/icons/arrow-right.svg";
 
 export default function Pagination() {
   const [currentPage, setCurrentPage] = useState<number>(1);

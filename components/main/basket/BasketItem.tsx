@@ -1,8 +1,8 @@
-import Plus from "../../../assets/icons/plus.svg";
-import Minus from "../../../assets/icons/Minus.svg";
-import { IBasketItem } from "../../../interfaces/basket";
+import Plus from "@assets/icons/plus.svg";
+import Minus from "@assets/icons/Minus.svg";
+import { IBasketItem } from "@interfaces/basket";
 import { useDispatch } from "react-redux";
-import { setItemCount } from "../../../stores/basketReducer";
+import { setItemCount } from "@stores/basketReducer";
 
 interface Props {
   basketItem: IBasketItem;

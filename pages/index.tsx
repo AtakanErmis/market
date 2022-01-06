@@ -1,12 +1,12 @@
-import Header from "../components/header";
-import CheckboxGroup from "../components/main/CheckboxGroup";
-import RadioGroup from "../components/main/RadioGroup";
-import ProductGroup from "../components/main/product/ProductGroup";
-import Basket from "../components/main/basket";
-import Footer from "../components/footer";
-import Pagination from "../components/main/product/Pagination";
-import ItemTypeFilter from "../components/main/product/ItemTypeFilter";
-import useWindowSize from "../hooks/useWindowSize";
+import Header from "@components/header";
+import CheckboxGroup from "@components/main/CheckboxGroup";
+import RadioGroup from "@components/main/RadioGroup";
+import ProductGroup from "@components/main/product/ProductGroup";
+import Basket from "@components/main/basket";
+import Footer from "@components/footer";
+import Pagination from "@components/main/product/Pagination";
+import ItemTypeFilter from "@components/main/product/ItemTypeFilter";
+import useWindowSize from "@hooks/useWindowSize";
 
 export default function Home() {
   const { width } = useWindowSize();

@@ -1,5 +1,5 @@
-import useWindowSize from "../../hooks/useWindowSize";
-import Basket from "./Basket";
+import useWindowSize from "@hooks/useWindowSize";
+import Basket from "@components/header/Basket";
 
 export default function Header() {
   const { width } = useWindowSize();

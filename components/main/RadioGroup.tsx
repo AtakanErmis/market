@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ISelectItem } from "../../interfaces";
-import Radio from "../ui/Radio";
+import { ISelectItem } from "@interfaces/index";
+import Radio from "@components/ui/Radio";
 
 interface Props {
   title?: string; // Title of the component.

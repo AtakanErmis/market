@@ -1,5 +1,5 @@
-import { ISelectItem } from "../../interfaces";
-import Checkbox from "../ui/Checkbox";
+import { ISelectItem } from "@interfaces/index";
+import Checkbox from "@components/ui/Checkbox";
 
 interface Props {
   title?: string; // Title of the component.

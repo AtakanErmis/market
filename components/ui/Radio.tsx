@@ -1,4 +1,4 @@
-import CheckRadio from "../../assets/icons/check-radio.svg";
+import CheckRadio from "@assets/icons/check-radio.svg";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   text?: string;
