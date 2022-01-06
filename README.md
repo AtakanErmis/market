@@ -7,4 +7,4 @@ A simple product listing web app for Getir Assignment.
 - Pull the latest source code from the repository to your computer: `git clone https://github.com/AtakanErmis/WaterNFood`
 - Install dependencies: `npm install`
 - copy `.env.example` to `.env` and edit it to your needs
-- Run the app: `npm start`
+- Run the app: `npm run dev`
