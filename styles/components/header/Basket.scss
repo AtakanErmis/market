@@ -1,0 +1,48 @@
+.header-basket {
+  position: relative;
+  background-color: $primary-dark;
+  height: 100%;
+  width: fit-content;
+  justify-self: end;
+  color: $white;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  &__content {
+    display: flex;
+    align-items: center;
+    .icon,
+    .text {
+      vertical-align: middle;
+      display: inline-block;
+    }
+    .text {
+      margin-left: 8px;
+    }
+  }
+  .mobile-basket {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 75px;
+    right: calc((100vw - 320px) / 2);
+    z-index: 999999;
+    color: $gray-900;
+    transition: all 150ms;
+    @media screen and (min-width: 440px) {
+      right: calc((100vw - 420px) / 2);
+    }
+    @media screen and (min-width: 624px) {
+      right: calc((100vw - 576px) / 2);
+    }
+    @media screen and (min-width: 996px) {
+      right: calc((100vw - 854px) / 2);
+    }
+  }
+  &:hover {
+    .mobile-basket {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
