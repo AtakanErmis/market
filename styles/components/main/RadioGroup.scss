@@ -1,0 +1,9 @@
+.radio-group {
+  &__panel {
+    max-height: fit-content;
+    ul {
+      height: auto;
+      padding: 0;
+    }
+  }
+}

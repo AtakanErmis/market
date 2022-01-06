@@ -1,0 +1,42 @@
+.checkbox-group,
+.radio-group {
+  margin: 28px 0;
+  &__title {
+    color: $secondary-text;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  &__panel {
+    max-height: 244px;
+    background: $white;
+    border-radius: 2px;
+    padding: 24px;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 7px;
+      height: 142px;
+      overflow: scroll;
+      li {
+        display: flex;
+        margin-bottom: 12px;
+        & > span {
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+  &__search-box {
+    padding: 10px 14px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    border: 2px solid $gray-300;
+    border-radius: 2px;
+    margin-bottom: 17px;
+    box-sizing: border-box;
+    width: 100%;
+    &:focus {
+      outline: 0;
+    }
+  }
+}
