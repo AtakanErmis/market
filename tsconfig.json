@@ -13,19 +13,20 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@hooks/*": ["./hooks/*"],
+      "@constants/*": ["./constants/*"],
+      "@assets/*": ["./assets/*"],
+      "@stores/*": ["./stores/*"],
+      "@components/*": ["./components/*"],
+      "@styles/*": ["./styles/*"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@utils/*": ["./utils/*"],
+      "@config/*": ["./config/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hooks/usePagination.js"],
-  "exclude": ["node_modules"],
-  "paths": {
-    "@hooks/*": ["./hooks/*"],
-    "@constants/*": ["./constants/*"],
-    "@stores/*": ["./stores/*"],
-    "@components/*": ["./components/*"],
-    "@styles/*": ["./styles/*"],
-    "@interfaces/*": ["./interfaces/*"],
-    "@icons/*": ["./icons/*"],
-    "@utils/*": ["./utils/*"],
-    "@config/*": ["./config/*"]
-  }
+  "exclude": ["node_modules"]
 }
