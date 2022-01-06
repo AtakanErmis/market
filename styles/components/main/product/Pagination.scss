@@ -1,6 +1,5 @@
 .pagination {
-  list-style: none;
-  padding: 0;
+  @include horizontal-list;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -14,12 +13,12 @@
       }
     }
     &:first-of-type {
-      @media screen and (min-width: 996px) {
+      @include media($lg) {
         margin-right: 45px;
       }
     }
     &:last-of-type {
-      @media screen and (min-width: 996px) {
+      @include media($lg) {
         margin-left: 45px;
       }
     }

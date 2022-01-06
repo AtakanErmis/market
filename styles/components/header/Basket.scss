@@ -29,13 +29,13 @@
     z-index: 999999;
     color: $gray-900;
     transition: all 150ms;
-    @media screen and (min-width: 440px) {
+    @include media($xs) {
       right: calc((100vw - 420px) / 2);
     }
-    @media screen and (min-width: 624px) {
+    @include media($sm-md) {
       right: calc((100vw - 576px) / 2);
     }
-    @media screen and (min-width: 996px) {
+    @include media($lg) {
       right: calc((100vw - 854px) / 2);
     }
   }

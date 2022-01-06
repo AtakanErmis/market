@@ -11,7 +11,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  @media screen and (min-width: 624px) {
+  @include media($sm-md) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -19,7 +19,7 @@
 .main-header__logo {
   justify-self: start;
   padding-left: 16px;
-  @media screen and (min-width: 624px) {
+  @include media($sm-md) {
     justify-self: center;
     padding-left: 0;
   }

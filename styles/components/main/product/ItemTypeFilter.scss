@@ -1,7 +1,5 @@
 .item-type-filter {
-  list-style: none;
-  padding: 0;
-  display: flex;
+  @include horizontal-list;
   .item-type {
     button {
       width: 60px;
