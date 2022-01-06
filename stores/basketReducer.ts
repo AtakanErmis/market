@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { IBasket } from "../interfaces/basket";
 
-const initialState = {
+const initialState: IBasket = {
+  totalPrice: 0,
   items: [],
 };
 
