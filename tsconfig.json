@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hooks/usePagination.js"],
+  "exclude": ["node_modules"],
+  "paths": {
+    "@hooks/*": ["./hooks/*"],
+    "@constants/*": ["./constants/*"],
+    "@stores/*": ["./stores/*"],
+    "@components/*": ["./components/*"],
+    "@styles/*": ["./styles/*"],
+    "@interfaces/*": ["./interfaces/*"],
+    "@icons/*": ["./icons/*"],
+    "@utils/*": ["./utils/*"],
+    "@config/*": ["./config/*"]
+  }
+}
