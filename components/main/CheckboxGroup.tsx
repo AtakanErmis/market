@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { ISelectItem } from "@interfaces/index";
 import Checkbox from "@components/ui/Checkbox";
 import { useState } from "react";

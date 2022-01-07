@@ -82,7 +82,7 @@ export default function Home({ companies, items, tags, itemTypes }: Props) {
         </div>
         <div className="col">
           <h2 className="products-title">Products</h2>
-          <ItemTypeFilter itemTypes={itemTypes} />
+          <ItemTypeFilter filterKey="itemType" itemTypes={itemTypes} />
           <ProductGroup products={products.data}></ProductGroup>
           <Pagination
             onChange={(page) => setOptions({ ...options, page })}
