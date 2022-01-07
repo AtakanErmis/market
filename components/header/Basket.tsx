@@ -16,6 +16,7 @@ export default function HeaderBasket() {
         <span className="text">₺{basket.totalPrice}</span>
       </div>
       {width < 1280 && (
+        // On smaller devices, basket will shown in the header basket component's hover state.
         <div className="mobile-basket">
           <Basket />
         </div>

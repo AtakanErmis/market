@@ -2,14 +2,13 @@ import { usePagination } from "@hooks/usePagination";
 import { useState } from "react";
 import LeftArrow from "@assets/icons/arrow-left.svg";
 import RightArrow from "@assets/icons/arrow-right.svg";
-import { useEffect } from "react";
-import { useCallback } from "react";
 
 interface Props {
   count: number;
   onChange?: (page: number) => void;
 }
 
+// Component for pagination buttons.
 export default function Pagination({ count, onChange }: Props) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const paginationRange = usePagination({
@@ -44,10 +43,10 @@ export default function Pagination({ count, onChange }: Props) {
           <button
             className={currentPage === page ? "active" : ""}
             onClick={() =>
-              page === "..."
+              page === "..." // If page is "...", then it is a separator.
                 ? index === 1
-                  ? setPage((paginationRange[index + 1] as number) - 1)
-                  : setPage((paginationRange[index - 1] as number) + 1)
+                  ? setPage((paginationRange[index + 1] as number) - 1) // If it is the first separator in range, then go to the previous page.
+                  : setPage((paginationRange[index - 1] as number) + 1) // Else, go to the next page.
                 : setPage(page as number)
             }
           >

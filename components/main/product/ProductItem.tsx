@@ -3,9 +3,10 @@ import { IProduct } from "@interfaces/index";
 import { addItem } from "@stores/basketReducer";
 
 interface Props {
-  product: IProduct;
+  product: IProduct; // Product to display.
 }
 
+// Component for each single product. Meant to be used in a ProductGroup component.
 export default function ProductItem({ product }: Props) {
   const dispatch = useDispatch();
   return (

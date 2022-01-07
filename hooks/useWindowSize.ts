@@ -5,6 +5,7 @@ interface Dimensions {
   height: number;
 }
 
+// Gets the current window dimensions.
 export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState<Dimensions>({
     width: 0,

@@ -3,6 +3,7 @@ import { IBasket } from "@interfaces/basket";
 import BasketItem from "@components/main/basket/BasketItem";
 import { AppState } from "@stores/store";
 
+// Component for displaying the basket.
 export default function Basket() {
   const basket: IBasket = useSelector((state: AppState) => state.basket);
   return (

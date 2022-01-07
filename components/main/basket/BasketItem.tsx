@@ -8,6 +8,7 @@ interface Props {
   basketItem: IBasketItem;
 }
 
+// Component for each single product in the Basket. Meant to be used in a Basket component.
 export default function BasketItem({ basketItem }: Props) {
   const dispatch = useDispatch();
   return (

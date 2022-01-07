@@ -12,7 +12,7 @@ interface Props {
   filterKey: string;
 }
 
-// Component for Filters.
+// Component for filters.
 export default function CheckboxGroup({
   title,
   items,
@@ -24,6 +24,7 @@ export default function CheckboxGroup({
   const [selected, setSelected] = useState<ISelectItem[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
+  // Reads the query string and sets the selected item type state.
   useEffect(() => {
     if (router.query[filterKey]) {
       const newSelected =
@@ -39,6 +40,7 @@ export default function CheckboxGroup({
     }
   }, [router]);
 
+  // Updates the query string and selected items state when the selected items are changed.
   function onChange(e, item) {
     const { checked } = e.target;
     let newSelected = selected;
@@ -72,10 +74,11 @@ export default function CheckboxGroup({
         )}
         <ul>
           {items
-            .filter((item) =>
-              searchQuery
-                ? item.name.search(new RegExp(searchQuery, "i")) !== -1
-                : true
+            .filter(
+              (item) =>
+                searchQuery
+                  ? item.name.search(new RegExp(searchQuery, "i")) !== -1 // search by name
+                  : true // if search query is not set, we show all items.
             )
             .map((item, index) => (
               <li key={index}>

@@ -18,6 +18,7 @@ const range = (start: number, end: number) => {
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
+// Generates pagination range using given page number and page size.
 export const usePagination = ({
   totalCount,
   pageSize,

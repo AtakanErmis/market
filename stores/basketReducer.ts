@@ -24,6 +24,7 @@ const basketSlice = createSlice({
       if (
         state.items.find((item) => item.product.slug === action.payload.slug)
       ) {
+        // If the item is already in the basket, increase the quantity by 1.
         state.items = state.items.map((item) => {
           if (item.product.slug === action.payload.slug) {
             item.quantity++;
@@ -40,6 +41,7 @@ const basketSlice = createSlice({
         state.items.push(basketItem);
       }
       state.totalPrice = state.items.reduce(
+        // Calculate the total price of the basket.
         (total, item) => total + item.totalPrice,
         0
       );
@@ -49,6 +51,7 @@ const basketSlice = createSlice({
         (item) => item.product.slug !== action.payload
       );
       state.totalPrice = state.items.reduce(
+        // Calculate the total price of the basket.
         (total, item) => total + item.totalPrice,
         0
       );
@@ -61,12 +64,14 @@ const basketSlice = createSlice({
         item.quantity = action.payload.count;
         item.totalPrice = item.product.price * item.quantity;
         if (item.quantity === 0) {
+          // If the quantity is 0, remove the item from the basket.
           state.items = state.items.filter(
             (i) => i.product.slug !== action.payload.slug
           );
         }
       }
       state.totalPrice = state.items.reduce(
+        // Calculate the total price of the basket.
         (total, item) => total + item.totalPrice,
         0
       );

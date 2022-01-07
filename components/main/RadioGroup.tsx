@@ -8,7 +8,7 @@ interface Props {
   onChange?: (value: ISelectItem) => void; // Callback function to be called when an item is selected.
 }
 
-// Component for Sorting.
+// Component for sorting options.
 export default function RadioGroup({ title, items, onChange }: Props) {
   const [checked, setChecked] = useState<number>(0);
   function setItem(index) {

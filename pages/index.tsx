@@ -20,29 +20,34 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 interface Props {
-  companies: ICompany[];
-  items: IGetItemsResponse;
-  tags: string[];
-  itemTypes: string[];
+  companies: ICompany[]; // List of companies to display for filtering.
+  items: IGetItemsResponse; // List of product items to display.
+  tags: string[]; // List of tags to display for filtering.
+  itemTypes: string[]; // List of item types to display for filtering.
 }
+
+const defaultOptions = {
+  // default options for product request.
+  limit: 16,
+  page: 1,
+  sortType: "price",
+  sortOrder: "asc",
+  filters: "",
+};
 
 export default function Home({ companies, items, tags, itemTypes }: Props) {
   const { width } = useWindowSize();
   const [products, setProducts] = useState(items);
   const router = useRouter();
-  const [options, setOptions] = useState({
-    limit: 16,
-    page: 1,
-    sortType: "price",
-    sortOrder: "asc",
-    filters: "",
-  });
+  const [options, setOptions] = useState(defaultOptions);
 
   useEffect(() => {
+    // update products when options change.
     getItemsRequest(options).then((res) => setProducts(res));
   }, [options]);
 
   useEffect(() => {
+    // update options when router query changes.
     setOptions((o) => ({
       ...o,
       page: 1,
@@ -59,6 +64,7 @@ export default function Home({ companies, items, tags, itemTypes }: Props) {
             items={sortItems}
             onChange={(sort) =>
               setOptions({
+                // update options when sort type changes.
                 ...options,
                 sortType: sort.sortType,
                 sortOrder: sort.sortOrder,
@@ -85,8 +91,8 @@ export default function Home({ companies, items, tags, itemTypes }: Props) {
           <ItemTypeFilter filterKey="itemType" itemTypes={itemTypes} />
           <ProductGroup products={products.data}></ProductGroup>
           <Pagination
-            onChange={(page) => setOptions({ ...options, page })}
-            count={products.total}
+            onChange={(page) => setOptions({ ...options, page })} // update options when page changes.
+            count={products.total} // total number of products.
           />
         </div>
         {width >= 1280 && (
@@ -103,12 +109,7 @@ export async function getStaticProps() {
   const companies = await getCompaniesRequest();
   const tags = await getTagsRequest();
   const itemTypes = await getItemTypesRequest();
-  const items = await getItemsRequest({
-    limit: 16,
-    page: 1,
-    sortType: "price",
-    sortOrder: "asc",
-  });
+  const items = await getItemsRequest(defaultOptions);
   return {
     props: {
       companies,

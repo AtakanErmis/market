@@ -7,7 +7,8 @@ export default function Header() {
     <header className="main-header">
       <div className="container">
         <div className="header-items-wrapper">
-          {width >= 624 && <div className="col"></div>}
+          {width >= 624 && <div className="col"></div>}{" "}
+          {/* Empty div for centering logo on bigger screens */}
           <img
             className="main-header__logo"
             src="/images/logo.svg"
