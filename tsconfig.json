@@ -27,6 +27,6 @@
       "@config/*": ["./config/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hooks/usePagination.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
