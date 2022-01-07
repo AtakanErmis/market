@@ -1,5 +1,5 @@
 import Plus from "@assets/icons/plus.svg";
-import Minus from "@assets/icons/Minus.svg";
+import Minus from "@assets/icons/minus.svg";
 import { IBasketItem } from "@interfaces/basket";
 import { useDispatch } from "react-redux";
 import { setItemCount } from "@stores/basketReducer";
