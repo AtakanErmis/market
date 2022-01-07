@@ -6,7 +6,7 @@ A simple product listing web app for Getir Assignment.
 
 - Pull the latest source code from the repository to your computer: `git clone https://github.com/AtakanErmis/market`
 - Install dependencies: `npm install`
-- copy `.env.example` to `.env` and edit it to your needs
+- copy `.env.example` to `.env` and edit it to your needs.
 - Run the app: `npm run dev`
   - It will listen to port 3000 on your network. You can access it by opening a browser and typing `http://localhost:3000`.
 
