@@ -6,7 +6,6 @@ import RightArrow from "@assets/icons/arrow-right.svg";
 export default function Pagination() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const paginationRange = usePagination({
-    // needs rewrite
     currentPage,
     pageSize: 16,
     totalCount: 1600,
@@ -26,7 +25,7 @@ export default function Pagination() {
         </button>
       </li>
       {paginationRange.map((page, index) => (
-        <li key={page}>
+        <li key={index}>
           <button
             className={currentPage === page ? "active" : ""}
             onClick={() =>
