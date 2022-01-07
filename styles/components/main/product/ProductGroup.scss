@@ -4,12 +4,13 @@
   grid-template-columns: 1fr;
   grid-gap: 20px 24px;
   padding: 22px 20px;
+  margin: 16px 0;
   background: $white;
   border-radius: 2px;
-  @include media($md) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
   @include media($sm-md) {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  @include media($md) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
