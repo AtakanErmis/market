@@ -22,6 +22,7 @@ export default function CheckboxGroup({
 }: Props) {
   const router = useRouter();
   const [selected, setSelected] = useState<ISelectItem[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     if (router.query[filterKey]) {
@@ -65,19 +66,27 @@ export default function CheckboxGroup({
             type="text"
             className="checkbox-group__search-box"
             placeholder={searchPlaceholder}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchQuery}
           />
         )}
         <ul>
-          {items.map((item, index) => (
-            <li key={index}>
-              <Checkbox
-                onChange={(e) => onChange(e, item)}
-                checked={selected.some((i) => i.slug === item.slug)}
-                text={item.name}
-              />
-              {item.count && <span>{item.count}</span>}
-            </li>
-          ))}
+          {items
+            .filter((item) =>
+              searchQuery
+                ? item.name.search(new RegExp(searchQuery, "i")) !== -1
+                : true
+            )
+            .map((item, index) => (
+              <li key={index}>
+                <Checkbox
+                  onChange={(e) => onChange(e, item)}
+                  checked={selected.some((i) => i.slug === item.slug)}
+                  text={item.name}
+                />
+                {item.count && <span>{item.count}</span>}
+              </li>
+            ))}
         </ul>
       </div>
     </div>
