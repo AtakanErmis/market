@@ -67,17 +67,17 @@ export default function Home({ companies, items, tags, itemTypes }: Props) {
           />
           <CheckboxGroup
             filterKey="manufacturer"
-            title="Companies"
+            title="Brands"
             items={companies}
             hasSearch
-            searchPlaceholder="Search..."
+            searchPlaceholder="Search brand"
           />
           <CheckboxGroup
             filterKey="tags"
             title="Tags"
             items={tags.map((tag) => ({ name: tag, slug: tag }))}
             hasSearch
-            searchPlaceholder="Search..."
+            searchPlaceholder="Search tag"
           />
         </div>
         <div className="col">
