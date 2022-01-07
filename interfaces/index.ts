@@ -22,5 +22,8 @@ export interface IProduct {
 
 export interface ISelectItem {
   name: string;
+  slug?: string;
   count?: number;
+  sortOrder?: string;
+  sortType?: string;
 }

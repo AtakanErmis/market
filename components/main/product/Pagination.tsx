@@ -2,21 +2,36 @@ import { usePagination } from "@hooks/usePagination";
 import { useState } from "react";
 import LeftArrow from "@assets/icons/arrow-left.svg";
 import RightArrow from "@assets/icons/arrow-right.svg";
+import { useEffect } from "react";
+import { useCallback } from "react";
 
-export default function Pagination() {
+interface Props {
+  count: number;
+  onChange?: (page: number) => void;
+}
+
+export default function Pagination({ count, onChange }: Props) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const paginationRange = usePagination({
     currentPage,
     pageSize: 16,
-    totalCount: 1600,
+    totalCount: count,
     siblingCount: 2,
   });
+
+  function setPage(num) {
+    setCurrentPage(num);
+    if (onChange) {
+      onChange(num);
+    }
+  }
+
   return (
     <ul className="pagination">
       <li>
         <button
           disabled={currentPage === 1}
-          onClick={() => setCurrentPage(currentPage - 1)}
+          onClick={() => setPage(currentPage - 1)}
         >
           <span>
             <LeftArrow />
@@ -31,9 +46,9 @@ export default function Pagination() {
             onClick={() =>
               page === "..."
                 ? index === 1
-                  ? setCurrentPage((paginationRange[index + 1] as number) - 1)
-                  : setCurrentPage((paginationRange[index - 1] as number) + 1)
-                : setCurrentPage(page as number)
+                  ? setPage((paginationRange[index + 1] as number) - 1)
+                  : setPage((paginationRange[index - 1] as number) + 1)
+                : setPage(page as number)
             }
           >
             {page}
@@ -41,7 +56,7 @@ export default function Pagination() {
         </li>
       ))}
       <li>
-        <button onClick={() => setCurrentPage(currentPage + 1)}>
+        <button onClick={() => setPage(currentPage + 1)}>
           <span>Next</span>
           <span>
             <RightArrow />
