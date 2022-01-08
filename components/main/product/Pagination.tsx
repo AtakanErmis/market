@@ -2,6 +2,7 @@ import { usePagination } from "@hooks/usePagination";
 import { useState } from "react";
 import LeftArrow from "@assets/icons/arrow-left.svg";
 import RightArrow from "@assets/icons/arrow-right.svg";
+import config from "@config/index";
 
 interface Props {
   count: number;
@@ -13,9 +14,9 @@ export default function Pagination({ count, onChange }: Props) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const paginationRange = usePagination({
     currentPage,
-    pageSize: 16,
+    pageSize: config.pagination.limit,
     totalCount: count,
-    siblingCount: 2,
+    siblingCount: config.pagination.siblingCount,
   });
 
   function setPage(num) {
@@ -31,6 +32,7 @@ export default function Pagination({ count, onChange }: Props) {
         <button
           disabled={currentPage === 1}
           onClick={() => setPage(currentPage - 1)}
+          data-testid="pagination-prev"
         >
           <span>
             <LeftArrow />
@@ -42,6 +44,7 @@ export default function Pagination({ count, onChange }: Props) {
         <li key={index}>
           <button
             className={currentPage === page ? "active" : ""}
+            data-testid="pagination-item"
             onClick={() =>
               page === "..." // If page is "...", then it is a separator.
                 ? index === 1
@@ -55,7 +58,10 @@ export default function Pagination({ count, onChange }: Props) {
         </li>
       ))}
       <li>
-        <button onClick={() => setPage(currentPage + 1)}>
+        <button
+          data-testid="pagination-next"
+          onClick={() => setPage(currentPage + 1)}
+        >
           <span>Next</span>
           <span>
             <RightArrow />
