@@ -18,6 +18,7 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import config from "@config/index";
 
 interface Props {
   companies: ICompany[]; // List of companies to display for filtering.
@@ -28,7 +29,7 @@ interface Props {
 
 const defaultOptions = {
   // default options for product request.
-  limit: 16,
+  limit: config.pagination.limit,
   page: 1,
   sortType: "price",
   sortOrder: "asc",
