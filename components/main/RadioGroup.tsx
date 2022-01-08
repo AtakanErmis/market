@@ -9,7 +9,11 @@ interface Props {
 }
 
 // Component for sorting options.
-export default function RadioGroup({ title, items, onChange }: Props) {
+export default function RadioGroup({
+  title,
+  items,
+  onChange = () => {},
+}: Props) {
   const [checked, setChecked] = useState<number>(0);
   function setItem(index) {
     setChecked(index);
@@ -17,17 +21,19 @@ export default function RadioGroup({ title, items, onChange }: Props) {
   }
   return (
     <div className="radio-group">
-      <div className="radio-group__title">{title}</div>
+      <div className="radio-group__title" data-testid="radio-group-title">
+        {title}
+      </div>
       <div className="radio-group__panel">
         <ul>
           {items.map((item, index) => (
             <li key={index}>
               <Radio
+                data-testid="radio-group-item"
                 text={item.name}
                 checked={checked === index}
                 onChange={() => setItem(index)}
               />
-              {item.count && <span>{item.count}</span>}
             </li>
           ))}
         </ul>
