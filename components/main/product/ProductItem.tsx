@@ -14,8 +14,12 @@ export default function ProductItem({ product }: Props) {
       <div className="product-item__image">
         <img src="https://picsum.photos/200/200" alt={product.name} />
       </div>
-      <div className="product-item__price">₺ {product.price}</div>
-      <div className="product-item__name">{product.name}</div>
+      <div className="product-item__price" data-testid="product-price">
+        ₺ {product.price}
+      </div>
+      <div className="product-item__name" data-testid="product-name">
+        {product.name}
+      </div>
       <button
         onClick={() => dispatch(addItem(product))}
         className="product-item__button"
