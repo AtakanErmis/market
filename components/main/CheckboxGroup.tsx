@@ -40,7 +40,7 @@ export default function CheckboxGroup({
     }
   }, [router]);
 
-  // Updates the query string and selected items state when the selected items are changed.
+  //Updates the query string and selected items state when the selected items are changed.
   function onChange(e, item) {
     const { checked } = e.target;
     let newSelected = selected;
@@ -61,7 +61,9 @@ export default function CheckboxGroup({
 
   return (
     <div className="checkbox-group">
-      <div className="checkbox-group__title">{title}</div>
+      <div className="checkbox-group__title" data-testid="checkbox-group-title">
+        {title}
+      </div>
       <div className="checkbox-group__panel">
         {hasSearch && (
           <input
