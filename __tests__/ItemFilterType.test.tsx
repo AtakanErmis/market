@@ -65,4 +65,19 @@ describe("CheckboxGroup", () => {
       },
     });
   });
+
+  it("updates selected item according to query string", () => {
+    const routerPushCallback = jest.fn();
+    useRouter.mockImplementation(() => ({
+      route: "/",
+      pathname: "/",
+      query: {
+        [props.filterKey]: props.itemTypes[1],
+      },
+      asPath: "",
+      push: routerPushCallback,
+    }));
+    render(<ItemTypeFilter {...props} />);
+    expect(screen.getByText(props.itemTypes[1])).toHaveClass("active");
+  });
 });
