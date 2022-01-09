@@ -1,4 +1,4 @@
-import { /*createAsyncThunk,*/ createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { IProduct } from "@interfaces/index";
 import { IBasket, IBasketItem } from "@interfaces/basket";
 
@@ -6,11 +6,6 @@ const initialState: IBasket = {
   totalPrice: 0,
   items: [],
 };
-
-// export const addItem = createAsyncThunk(
-//   "basket/addItem",
-//   async (data, thunkAPI) => {}
-// );
 
 const basketSlice = createSlice({
   name: "basket",
@@ -77,10 +72,6 @@ const basketSlice = createSlice({
       );
     },
   },
-  // extraReducers: (builder) => {
-  //   builder.addCase(addItem.pending, (state) => {});
-  //   builder.addCase(addItem.fulfilled, (state, action) => {});
-  // },
 });
 
 export const { clearBasket, addItem, removeItem, setItemCount } =
