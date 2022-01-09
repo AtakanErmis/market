@@ -14,11 +14,16 @@ export default function BasketItem({ basketItem }: Props) {
   return (
     <li className="basket-item">
       <div className="wrapper">
-        <div className="basket-item__name">{basketItem.product.name}</div>
-        <div className="basket-item__price">₺{basketItem.product.price}</div>
+        <div className="basket-item__name" data-testid="basket-item-name">
+          {basketItem.product.name}
+        </div>
+        <div className="basket-item__price" data-testid="basket-item-price">
+          ₺{basketItem.totalPrice}
+        </div>
       </div>
       <div className="basket-item__amount">
         <button
+          data-testid="basket-item-minus"
           onClick={() =>
             dispatch(
               setItemCount({
@@ -30,8 +35,9 @@ export default function BasketItem({ basketItem }: Props) {
         >
           <Minus />
         </button>
-        <span>{basketItem.quantity}</span>
+        <span data-testid="basket-item-quantity">{basketItem.quantity}</span>
         <button
+          data-testid="basket-item-plus"
           onClick={() =>
             dispatch(
               setItemCount({
