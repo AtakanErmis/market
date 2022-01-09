@@ -6,6 +6,7 @@
   padding: 22px 20px;
   margin: 16px 0;
   background: $white;
+  box-shadow: 0 6px 24px 0 $gray-200;
   border-radius: 2px;
   @include media($sm-md) {
     grid-template-columns: 1fr 1fr 1fr;

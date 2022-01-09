@@ -12,6 +12,10 @@
   min-height: 22px;
 }
 
+.checkbox-wrapper:hover .checkbox__checkmark {
+  background-color: $gray-200;
+}
+
 .checkbox-wrapper input {
   position: absolute;
   opacity: 0;

@@ -12,6 +12,10 @@
   min-height: 26px;
 }
 
+.radio-wrapper:hover .radio__checkmark {
+  border-color: lighten($primary, 10%);
+}
+
 .radio-wrapper input {
   position: absolute;
   opacity: 0;
