@@ -24,7 +24,7 @@ export default function CheckboxGroup({
   const [selected, setSelected] = useState<ISelectItem[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  // Reads the query string and sets the selected item type state.
+  // Sets selected filter state as the query string value.
   useEffect(() => {
     if (router.query[filterKey]) {
       const newSelected =
@@ -40,7 +40,7 @@ export default function CheckboxGroup({
     }
   }, [router]);
 
-  //Updates the query string and selected items state when the selected items are changed.
+  // Updates the query string and selected items state when the selected items are changed.
   function onChange(e, item) {
     const { checked } = e.target;
     let newSelected = selected;
