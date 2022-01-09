@@ -1,14 +1,15 @@
 .radio-wrapper {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
-  padding-left: 30px;
+  padding-left: 38px;
   cursor: pointer;
   font-size: 16px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  height: 22px;
+  min-height: 26px;
 }
 
 .radio-wrapper input {
@@ -58,4 +59,9 @@
 .radio__text,
 .radio__checkmark {
   vertical-align: middle;
+}
+
+.radio__text {
+  font-size: 14px;
+  color: $gray-700;
 }
