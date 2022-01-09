@@ -95,13 +95,16 @@ export default function CheckboxGroup({
           />
         )}
         <ul>
-          <li>
-            <Checkbox
-              onChange={(e) => onChange(e, { slug: "", name: "All" })}
-              checked={!selected.length}
-              text="All"
-            />
-          </li>
+          {!searchQuery && (
+            <li>
+              <Checkbox
+                onChange={(e) => onChange(e, { slug: "", name: "All" })}
+                checked={!selected.length}
+                text="All"
+              />
+            </li>
+          )}
+
           {items
             .filter(
               (item) =>
