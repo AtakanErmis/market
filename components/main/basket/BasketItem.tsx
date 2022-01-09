@@ -18,7 +18,7 @@ export default function BasketItem({ basketItem }: Props) {
           {basketItem.product.name}
         </div>
         <div className="basket-item__price" data-testid="basket-item-price">
-          ₺{basketItem.totalPrice}
+          ₺{basketItem.totalPrice.toFixed(2)}
         </div>
       </div>
       <div className="basket-item__amount">
