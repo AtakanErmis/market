@@ -63,12 +63,16 @@ describe("CheckboxGroup", () => {
     }));
     render(<CheckboxGroup {...props} />);
     screen.getByText("Item 1").parentElement.querySelector("input").click();
-    expect(routerPushMockCallback).toHaveBeenCalledWith({
-      pathname: "/",
-      query: {
-        "filter-key": ["item-1"],
+    expect(routerPushMockCallback).toHaveBeenCalledWith(
+      {
+        pathname: "/",
+        query: {
+          "filter-key": ["item-1"],
+        },
       },
-    });
+      undefined,
+      { scroll: false }
+    );
   });
 
   it("filters options when type on search box", () => {
