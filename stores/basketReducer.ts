@@ -11,7 +11,7 @@ const basketSlice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    clearBasket(state, action) {
+    clearBasket(state) {
       state.items = initialState.items;
       state.totalPrice = initialState.totalPrice;
     },
