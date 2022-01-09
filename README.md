@@ -32,7 +32,7 @@ A simple product listing web app for Getir Assignment. This project is created w
   - You can use the git remote command to confirm that a remote named heroku has been set for your app: `git remote -v`
 - Push the source code to heroku: `git push heroku main`
 
-# npm scripts
+## npm scripts
 
 - `npm run dev`: Starts the development server.
 - `npm run build`: Generates optimized build of the application.
