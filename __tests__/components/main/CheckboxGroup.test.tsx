@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import { testRender as render } from "@utils/testRender";
 import CheckboxGroup from "@components/main/CheckboxGroup";
 
@@ -69,5 +69,25 @@ describe("CheckboxGroup", () => {
         "filter-key": ["item-1"],
       },
     });
+  });
+
+  it("filters options when type on search box", () => {
+    useRouter.mockImplementationOnce(() => ({
+      route: "/",
+      pathname: "/",
+      query: "",
+      asPath: "",
+    }));
+    render(<CheckboxGroup {...props} hasSearch />);
+    const input: HTMLInputElement = screen.getByTestId(
+      "checkbox-group-search-box"
+    );
+    fireEvent.change(input, {
+      target: {
+        value: "Item 1",
+      },
+    });
+    expect(screen.getByText("Item 1")).toBeInTheDocument();
+    expect(screen.queryByText("Item 2")).not.toBeInTheDocument();
   });
 });

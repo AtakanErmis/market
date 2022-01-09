@@ -69,6 +69,7 @@ export default function CheckboxGroup({
           <input
             type="text"
             className="checkbox-group__search-box"
+            data-testid="checkbox-group-search-box"
             placeholder={searchPlaceholder}
             onChange={(e) => setSearchQuery(e.target.value)}
             value={searchQuery}
