@@ -2,6 +2,8 @@
 
 A simple product listing web app for Getir Assignment.
 
+json-server API Repo: https://github.com/AtakanErmis/market-api
+
 ## How to run locally (development)
 
 - Pull the latest source code from the repository to your computer: `git clone https://github.com/AtakanErmis/market`
