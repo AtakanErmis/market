@@ -60,6 +60,7 @@ export default function Pagination({ count, onChange }: Props) {
       <li>
         <button
           data-testid="pagination-next"
+          disabled={currentPage === paginationRange[paginationRange.length - 1]}
           onClick={() => setPage(currentPage + 1)}
         >
           <span>Next</span>
