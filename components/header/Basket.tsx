@@ -13,7 +13,7 @@ export default function HeaderBasket() {
         <span className="icon">
           <BasketIcon />
         </span>
-        <span className="text">₺{basket.totalPrice}</span>
+        <span className="text">₺{basket.totalPrice.toFixed(2)}</span>
       </div>
       {width < 1280 && (
         // On smaller devices, basket will shown in the header basket component's hover state.
