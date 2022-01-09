@@ -8,7 +8,7 @@ interface Props {
 
 // Component for filter buttons for item types.
 export default function ItemTypeFilter({ itemTypes, filterKey }: Props) {
-  const [selected, setSelected] = useState<string>(itemTypes[0]);
+  const [selected, setSelected] = useState<string>("");
   const [initialized, setInitialized] = useState<boolean>(false);
   const router = useRouter();
 
