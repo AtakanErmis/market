@@ -42,21 +42,40 @@ export default function CheckboxGroup({
 
   // Updates the query string and selected items state when the selected items are changed.
   function onChange(e, item) {
-    const { checked } = e.target;
-    let newSelected = selected;
-    if (checked) {
-      newSelected = [...selected, item];
+    if (item.slug) {
+      const { checked } = e.target;
+      let newSelected = selected;
+      if (checked) {
+        newSelected = [...selected, item];
+      } else {
+        newSelected = selected.filter((i) => i.slug !== item.slug);
+      }
+      setSelected(newSelected);
+      router.push(
+        {
+          pathname: router.pathname,
+          query: {
+            ...router.query,
+            [filterKey]: newSelected.map((item) => item.slug),
+          },
+        },
+        undefined,
+        { scroll: false }
+      );
     } else {
-      newSelected = selected.filter((i) => i.slug !== item.slug);
+      setSelected([]);
+      router.push(
+        {
+          pathname: router.pathname,
+          query: {
+            ...router.query,
+            [filterKey]: [],
+          },
+        },
+        undefined,
+        { scroll: false }
+      );
     }
-    setSelected(newSelected);
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        [filterKey]: newSelected.map((item) => item.slug),
-      },
-    });
   }
 
   return (
@@ -76,6 +95,13 @@ export default function CheckboxGroup({
           />
         )}
         <ul>
+          <li>
+            <Checkbox
+              onChange={(e) => onChange(e, { slug: "", name: "All" })}
+              checked={!selected.length}
+              text="All"
+            />
+          </li>
           {items
             .filter(
               (item) =>
