@@ -26,4 +26,5 @@ export interface ISelectItem {
   count?: number;
   sortOrder?: string;
   sortType?: string;
+  itemCount?: number;
 }

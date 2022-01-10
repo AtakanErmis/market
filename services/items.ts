@@ -42,13 +42,9 @@ export const getItemsRequest = async ({
 
 // Get items from the API and extract the tags.
 export const getTagsRequest = async () => {
-  const response = await fetch(`${config.API_URL}/items`);
+  const response = await fetch(`${config.API_URL}/tags`);
   const data = await response.json();
-  const tags = data.reduce((acc, item) => {
-    const newTags = item.tags.filter((tag) => !acc.includes(tag));
-    return [...acc, ...newTags];
-  }, []);
-  return tags;
+  return data;
 };
 
 // Get items from the API and extract the item types.

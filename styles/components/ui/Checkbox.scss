@@ -68,4 +68,7 @@
 .checkbox__text {
   font-size: 14px;
   color: $gray-700;
+  &--count {
+    color: $gray-500;
+  }
 }

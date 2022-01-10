@@ -7,7 +7,7 @@ import ItemTypeFilter from "@components/main/product/ItemTypeFilter";
 import useWindowSize from "@hooks/useWindowSize";
 import Layout from "@components/layout";
 import { getCompaniesRequest } from "../services/companies";
-import { ICompany } from "@interfaces/index";
+import { ICompany, ISelectItem } from "@interfaces/index";
 import { sortItems } from "@constants/sort";
 import {
   getItemsRequest,
@@ -23,7 +23,7 @@ import config from "@config/index";
 interface Props {
   companies: ICompany[]; // List of companies to display for filtering.
   items: IGetItemsResponse; // List of product items to display.
-  tags: string[]; // List of tags to display for filtering.
+  tags: ISelectItem[]; // List of tags to display for filtering.
   itemTypes: string[]; // List of item types to display for filtering.
 }
 
@@ -82,7 +82,7 @@ export default function Home({ companies, items, tags, itemTypes }: Props) {
           <CheckboxGroup
             filterKey="tags"
             title="Tags"
-            items={tags.map((tag) => ({ name: tag, slug: tag }))}
+            items={tags}
             hasSearch
             searchPlaceholder="Search tag"
           />
