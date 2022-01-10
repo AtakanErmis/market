@@ -6,16 +6,18 @@ const useRouter = jest.spyOn(require("next/router"), "useRouter");
 
 describe("CheckboxGroup", () => {
   const props = {
-    title: "RadioGroup Title",
+    title: "CheckboxGroup Title",
     filterKey: "filter-key",
     items: [
       {
         name: "Item 1",
         slug: "item-1",
+        itemCount: 10,
       },
       {
         name: "Item 2",
         slug: "item-2",
+        itemCount: 10,
       },
     ],
   };
@@ -33,7 +35,9 @@ describe("CheckboxGroup", () => {
     );
 
     props.items.forEach((item) => {
-      expect(item.name).toBe(screen.getByText(item.name).textContent);
+      expect(screen.getByText(item.name).textContent).toBe(
+        `${item.name} ${item.itemCount ? `(${item.itemCount})` : ""}`
+      );
     });
   });
 
@@ -42,7 +46,7 @@ describe("CheckboxGroup", () => {
       route: "/",
       pathname: "/",
       query: {
-        "filter-key": "item-1",
+        "filter-key": ["item-1"],
       },
       asPath: "",
     }));
@@ -54,7 +58,7 @@ describe("CheckboxGroup", () => {
 
   it("updates the router when an item is checked", () => {
     const routerPushMockCallback = jest.fn((url) => url);
-    useRouter.mockImplementationOnce(() => ({
+    useRouter.mockImplementation(() => ({
       route: "/",
       pathname: "/",
       query: "",
@@ -63,7 +67,7 @@ describe("CheckboxGroup", () => {
     }));
     render(<CheckboxGroup {...props} />);
     screen.getByText("Item 1").parentElement.querySelector("input").click();
-    expect(routerPushMockCallback).toHaveBeenCalledWith(
+    expect(routerPushMockCallback).toHaveBeenLastCalledWith(
       {
         pathname: "/",
         query: {

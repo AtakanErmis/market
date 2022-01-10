@@ -12,7 +12,6 @@ export default function ItemTypeFilter({ itemTypes, filterKey }: Props) {
   const [selected, setSelected] = useState<ISelectItem>();
   const [initialized, setInitialized] = useState<boolean>(false);
   const router = useRouter();
-  console.log(itemTypes);
 
   // Reads the query string and sets the selected item type state.
   useEffect(() => {
@@ -29,15 +28,6 @@ export default function ItemTypeFilter({ itemTypes, filterKey }: Props) {
       setSelected({
         name: newSelected as string,
         slug: newSelected as string,
-      });
-    } else {
-      // if the query is not set, we set the first item type as selected.
-      router.push({
-        pathname: router.pathname,
-        query: {
-          ...router.query,
-          [filterKey]: itemTypes[0].slug,
-        },
       });
     }
   }, [router, filterKey]);

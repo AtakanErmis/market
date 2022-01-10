@@ -4,9 +4,18 @@ import ItemTypeFilter from "@components/main/product/ItemTypeFilter";
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter");
 
-describe("CheckboxGroup", () => {
+describe("ItemTypeFilter", () => {
   const props = {
-    itemTypes: ["itemType1", "itemType2"],
+    itemTypes: [
+      {
+        name: "Item Type 1",
+        slug: "item-type-1",
+      },
+      {
+        name: "Item Type 2",
+        slug: "item-type-2",
+      },
+    ],
     filterKey: "itemType",
   };
 
@@ -22,7 +31,7 @@ describe("CheckboxGroup", () => {
     render(<ItemTypeFilter {...props} />);
 
     props.itemTypes.forEach((itemType) => {
-      expect(screen.getByText(itemType)).toBeInTheDocument();
+      expect(screen.getByText(itemType.name)).toBeInTheDocument();
     });
   });
 
@@ -38,11 +47,11 @@ describe("CheckboxGroup", () => {
     render(<ItemTypeFilter {...props} />);
 
     props.itemTypes.forEach((itemType) => {
-      screen.getByText(itemType).click();
+      screen.getByText(itemType.name).click();
       expect(routerPushCallback).toHaveBeenCalledWith({
         pathname: "/",
         query: {
-          [props.filterKey]: itemType,
+          [props.filterKey]: itemType.slug,
         },
       });
     });
@@ -61,23 +70,23 @@ describe("CheckboxGroup", () => {
     expect(routerPushCallback).toHaveBeenCalledWith({
       pathname: "/",
       query: {
-        [props.filterKey]: props.itemTypes[0],
+        [props.filterKey]: props.itemTypes[0].slug,
       },
     });
   });
 
   it("updates selected item according to query string", () => {
     const routerPushCallback = jest.fn();
-    useRouter.mockImplementation(() => ({
+    useRouter.mockImplementationOnce(() => ({
       route: "/",
       pathname: "/",
       query: {
-        [props.filterKey]: props.itemTypes[1],
+        [props.filterKey]: props.itemTypes[1].slug,
       },
       asPath: "",
       push: routerPushCallback,
     }));
     render(<ItemTypeFilter {...props} />);
-    expect(screen.getByText(props.itemTypes[1])).toHaveClass("active");
+    expect(screen.getByText(props.itemTypes[1].name)).toHaveClass("active");
   });
 });
