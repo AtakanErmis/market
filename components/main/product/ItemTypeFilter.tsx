@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { ISelectItem } from "@interfaces/index";
 
 interface Props {
-  itemTypes: string[];
+  itemTypes: ISelectItem[];
   filterKey: string;
 }
 
 // Component for filter buttons for item types.
 export default function ItemTypeFilter({ itemTypes, filterKey }: Props) {
-  const [selected, setSelected] = useState<string>("");
+  const [selected, setSelected] = useState<ISelectItem>();
   const [initialized, setInitialized] = useState<boolean>(false);
   const router = useRouter();
+  console.log(itemTypes);
 
   // Reads the query string and sets the selected item type state.
   useEffect(() => {
@@ -24,14 +26,17 @@ export default function ItemTypeFilter({ itemTypes, filterKey }: Props) {
         router.query[filterKey] instanceof Array
           ? router.query[filterKey][0]
           : router.query[filterKey];
-      setSelected(newSelected as string);
+      setSelected({
+        name: newSelected as string,
+        slug: newSelected as string,
+      });
     } else {
       // if the query is not set, we set the first item type as selected.
       router.push({
         pathname: router.pathname,
         query: {
           ...router.query,
-          [filterKey]: itemTypes[0],
+          [filterKey]: itemTypes[0].slug,
         },
       });
     }
@@ -44,19 +49,19 @@ export default function ItemTypeFilter({ itemTypes, filterKey }: Props) {
       pathname: router.pathname,
       query: {
         ...router.query,
-        [filterKey]: type,
+        [filterKey]: type.slug,
       },
     });
   }
   return (
     <ul className="item-type-filter">
       {itemTypes.map((type) => (
-        <li key={type} className="item-type">
+        <li key={type.slug} className="item-type">
           <button
-            className={selected === type ? "active" : ""}
+            className={selected?.slug === type.slug ? "active" : ""}
             onClick={() => onChange(type)}
           >
-            {type}
+            {type.name}
           </button>
         </li>
       ))}

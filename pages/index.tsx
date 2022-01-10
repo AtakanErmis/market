@@ -24,7 +24,7 @@ interface Props {
   companies: ICompany[]; // List of companies to display for filtering.
   items: IGetItemsResponse; // List of product items to display.
   tags: ISelectItem[]; // List of tags to display for filtering.
-  itemTypes: string[]; // List of item types to display for filtering.
+  itemTypes: ISelectItem[]; // List of item types to display for filtering.
 }
 
 const defaultOptions = {

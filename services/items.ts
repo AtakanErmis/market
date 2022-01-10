@@ -1,5 +1,5 @@
 import config from "@config/index";
-import { IProduct } from "@interfaces/index";
+import { IProduct, ISelectItem } from "@interfaces/index";
 
 export interface IGetItemsRequestArgs {
   limit?: number; // Number of items to be returned per page
@@ -40,20 +40,16 @@ export const getItemsRequest = async ({
   };
 };
 
-// Get items from the API and extract the tags.
+// Get tags from API.
 export const getTagsRequest = async () => {
   const response = await fetch(`${config.API_URL}/tags`);
   const data = await response.json();
   return data;
 };
 
-// Get items from the API and extract the item types.
+// Get item types from API.
 export const getItemTypesRequest = async () => {
-  const response = await fetch(`${config.API_URL}/items`);
-  const data: IProduct[] = await response.json();
-  const types = data.reduce((acc, item) => {
-    if (acc.includes(item.itemType)) return acc;
-    return [...acc, item.itemType];
-  }, []);
-  return types;
+  const response = await fetch(`${config.API_URL}/itemTypes`);
+  const data: ISelectItem[] = await response.json();
+  return data;
 };
