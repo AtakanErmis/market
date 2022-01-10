@@ -57,24 +57,6 @@ describe("ItemTypeFilter", () => {
     });
   });
 
-  it("updates default query string on component load", () => {
-    const routerPushCallback = jest.fn();
-    useRouter.mockImplementation(() => ({
-      route: "/",
-      pathname: "/",
-      query: {},
-      asPath: "",
-      push: routerPushCallback,
-    }));
-    render(<ItemTypeFilter {...props} />);
-    expect(routerPushCallback).toHaveBeenCalledWith({
-      pathname: "/",
-      query: {
-        [props.filterKey]: props.itemTypes[0].slug,
-      },
-    });
-  });
-
   it("updates selected item according to query string", () => {
     const routerPushCallback = jest.fn();
     useRouter.mockImplementationOnce(() => ({

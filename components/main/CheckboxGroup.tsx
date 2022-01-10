@@ -31,7 +31,7 @@ export default function CheckboxGroup({
         router.query[filterKey] instanceof Array
           ? (router.query[filterKey] as string[]).map((slug) => {
               const item = items.find((item) => item.slug === slug);
-              if (item) {
+              if (item.slug) {
                 return item;
               }
             })

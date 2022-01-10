@@ -10,6 +10,11 @@ describe("CheckboxGroup", () => {
     filterKey: "filter-key",
     items: [
       {
+        name: "All",
+        slug: "",
+        itemCount: 20,
+      },
+      {
         name: "Item 1",
         slug: "item-1",
         itemCount: 10,

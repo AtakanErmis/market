@@ -10,17 +10,11 @@ interface Props {
 // Component for filter buttons for item types.
 export default function ItemTypeFilter({ itemTypes, filterKey }: Props) {
   const [selected, setSelected] = useState<ISelectItem>();
-  const [initialized, setInitialized] = useState<boolean>(false);
   const router = useRouter();
 
   // Reads the query string and sets the selected item type state.
   useEffect(() => {
-    if (!initialized) {
-      // the query in next.js router is not initialized yet. So we won't do anything in first render.
-      setInitialized(true);
-      return;
-    }
-    if (router.query[filterKey]) {
+    if (router?.query[filterKey]) {
       const newSelected = // router query is string[] | string, so we have to convert it to string if it is string[]
         router.query[filterKey] instanceof Array
           ? router.query[filterKey][0]
