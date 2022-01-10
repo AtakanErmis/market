@@ -107,11 +107,9 @@ export default function CheckboxGroup({
                 <Checkbox
                   onChange={(e) => onChange(e, item)}
                   checked={
-                    index !== 0
+                    item.slug
                       ? selected.some((i) => i.slug === item.slug)
-                      : selected.length
-                      ? false
-                      : true
+                      : !selected.some((i) => i.slug)
                   }
                   text={item.name}
                   itemCount={item.itemCount}
