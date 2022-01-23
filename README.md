@@ -2,8 +2,8 @@
 
 A simple product listing web app for Getir Assignment. This project is created with React, Redux, Redux Toolkit, Next.js, TypeScript and SASS. For API solution, json-server is used.
 
-- Live Demo: https://the-market-frontend.herokuapp.com/
-- API Server: https://the-market-api.herokuapp.com/
+- Live Demo: https://the-market-web.herokuapp.com/
+- API Server: https://the-market-backend.herokuapp.com/
 - json-server API Repo: https://github.com/AtakanErmis/market-api
 
 ## How to run locally (development)
