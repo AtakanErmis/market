@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env: 
-      NEXT_PUBLIC_API_URL: "https://the-market-api.herokuapp.com" 
+      NEXT_PUBLIC_API_URL: "https://the-market-backend.herokuapp.com" 
 
     strategy:
       matrix:
